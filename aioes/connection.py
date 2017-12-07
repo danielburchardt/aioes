@@ -21,6 +21,7 @@ class Connection:
         self._endpoint = endpoint
         self._session = aiohttp.ClientSession(
             # limit number of connections?
+            headers={'Content-Type':'application/json'},
             connector=connector or aiohttp.TCPConnector(
                 use_dns_cache=True,
                 loop=loop,
